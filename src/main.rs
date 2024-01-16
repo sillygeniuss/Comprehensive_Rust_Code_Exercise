@@ -1,32 +1,37 @@
+use std::fs::File;
+use std::io::Read;
+
 fn main() {
     println!("Edit me!");
     // static typing
-    let x: i32 = 10;
-    println!("x: {x}");
+    //let x: i32 = 10;
+    //println!("x: {x}");
     // becuz of static typing, {x} is immutable, this will not work
     // x = 20;
     // println!("x: {x}");
 
     // String | &str
     // default immutable
-    let platform = "x86_64";
-    println!("platform: {platform}");
+    // let platform = "x86_64";
+    // println!("platform: {platform}");
 
-    // explicit mutable string
-    let mut system = "Linux";
-    println!("system: {system}");
+    // // explicit mutable string
+    // let mut system = "Linux";
+    // println!("system: {system}");
 
-    system = "Windows";
-    println!("system: {system}");
+    // system = "Windows";
+    // println!("system: {system}");
 
-    // escape quotes with # or \
-    println!(r#"<a href="link.html">link</a>"#);
+    // // escape quotes with # or \
+    // println!(r#"<a href="link.html">link</a>"#);
 
-    let n = 20;
-    println!("fib({n}): {}", fib(n));
+    // let n = 20;
+    // println!("fib({n}): {}", fib(n));
 
-    stage_condition();
-    stage_tuples_arrays();
+    // stage_condition();
+    // stage_tuples_arrays();
+
+    standard_library_types();
 }
 
 fn fib(n: u32) -> u32 {
@@ -102,4 +107,9 @@ fn stage_tuples_arrays() {
             println!("not match");
         }
     }
+}
+
+fn standard_library_types() {
+    let file: Result<File, std::io::Error> = File::open("test.txt");
+    file.unwrap();
 }
